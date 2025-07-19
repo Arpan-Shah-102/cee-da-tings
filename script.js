@@ -29,7 +29,7 @@ function startGame() {
     totalRounds = 10;
     score = 0;
     if (gameType === 'contrast') {
-        testHeading.style.color = 'rgb(255, 255, 255)'; // Reset to white text
+        testHeading.style.color = 'rgb(50, 50, 50)'; // Reset to white text
         document.body.classList.remove('red', 'orange', 'yellow', 'green', 'blue', 'purple', 'pink', 'brown', 'black', 'white', 'grey');
         document.body.classList.add('contrast-bg');
     } else {
@@ -44,8 +44,6 @@ function startGame() {
 }
 
 function checkGameOver() {
-    testHeading.textContent = letters[Math.floor(Math.random() * letters.length)];
-    inputField.value = '';
 
     if (gameType === 'normal') {
         let currentBlur = parseFloat(getComputedStyle(testHeading).filter.match(/blur\((.+)px\)/)?.[1] || 0);
@@ -61,20 +59,16 @@ function checkGameOver() {
     } else if (gameType === 'contrast') {
         let color = getComputedStyle(testHeading).color;
         let rgb = color.match(/\d+/g);
-        
-        if (rgb[0] == 3) {
-            newR = rgb[0] - 1;
-            newG = rgb[1] - 1;
-            newB = rgb[2] - 1;
-        } else {
-            newR = Math.floor(rgb[0] * 0.5);
-            newG = Math.floor(rgb[1] * 0.5);
-            newB = Math.floor(rgb[2] * 0.5);
-        }
+
+        let newR = Math.min(255, parseInt(rgb[0]) * 1.195);
+        let newG = Math.min(255, parseInt(rgb[1]) * 1.195);
+        let newB = Math.min(255, parseInt(rgb[2]) * 1.195);
 
         testHeading.style.color = `rgb(${newR}, ${newG}, ${newB})`;
     }
 
+    testHeading.textContent = letters[Math.floor(Math.random() * letters.length)];
+    inputField.value = '';
     totalRounds--;
     if (totalRounds <= 0) {
         inputField.style.display = 'none';
@@ -91,7 +85,7 @@ function checkGameOver() {
 
 inputField.addEventListener('keypress', function(event) {
     if (testStarted && event.key === 'Enter') {
-        if (inputField.value === testHeading.textContent) {
+        if (inputField.value.toLowerCase() === testHeading.textContent) {
             score++;
             scoreField.textContent = score + '/10';
             checkGameOver();
