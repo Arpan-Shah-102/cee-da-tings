@@ -75,9 +75,9 @@ function checkGameOver() {
         testHeading.style.display = 'none';
 
         if (score >= 8) {
-            scoreField.textContent= 'You passed the test! You scored have normal vision.';
+            scoreField.textContent= 'You passed the test! You scored ' + score + '/10';
         } else {
-            scoreField.textContent = 'You failed the test. You have bad vision.';
+            scoreField.textContent = 'You failed the test. You scored ' + score + '/10';
         }
         testStarted = false;
     }
