@@ -151,12 +151,8 @@ let modes = [normal, size, blur, contrast];
 for (let i = 0; i < modes.length; i++) {
     modes[i].addEventListener('click', function() {
         gameType = modes[i].classList[0];
-        if (gameType === 'contrast') {
-            document.body.classList.remove('red', 'orange', 'yellow', 'green', 'blue', 'purple', 'pink', 'brown', 'black', 'white', 'grey');
-            document.body.classList.add('contrast-bg');
-        } else {
-            document.body.classList.remove('contrast-bg');
-            document.body.classList.add('white');
+        if (!testStarted) {
+            testHeading.style.color = '';
         }
         startGame();
     });
