@@ -102,6 +102,7 @@ nav {
 }
 .colors-btn {padding-right: 35px;}
 .colors {
+    z-index: 999;
     right: 0px;
     position: fixed;
     & ul {
@@ -113,6 +114,7 @@ nav {
 }
 .menu-btn {padding-left: 35px;}
 .menu {
+    z-index: 999;
     left: -160px;
     position: fixed;
 
