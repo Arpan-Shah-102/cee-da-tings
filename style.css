@@ -48,6 +48,8 @@ h1 {
     & > .see {
         font-size: 100pt;
         font-weight: lighter;
+        user-select: none;
+        cursor: not-allowed;
     }
 }
 
@@ -115,25 +117,42 @@ nav {
     position: fixed;
 
     & ul {height: 100vh;}
-    & button {color: white;}
+    & button {
+        color: white;
+        padding: 10px 0px;
+    }
+    & .mute-sfx {
+        background-color: rgba(0, 129, 0, 0.5);
+        width: 80px;
+        height: 30px;
+        font-size: 12px;
+        line-height: 11px;
+    }
 }
+.pink {background-color: pink;}
+.crimson {background-color: crimson; color: white;}
 .red {background-color: red; color: white;}
+.brown {background-color: chocolate; color: white;}
 .orange {background-color: orange;}
 .yellow {background-color: yellow;}
+.lime {background-color: lime; color: black;}
 .green {background-color: green; color: white;}
+.forest {background-color: rgb(0, 60, 0); color: white;}
+.cyan {background-color: rgb(0, 255, 255); color: black;}
+.dark-grey {background-color: darkslategray; color: white;}
 .blue {background-color: blue; color: white;}
+.navy {background-color: navy; color: white;}
 .purple {background-color: purple; color: white;}
-.pink {background-color: pink;}
-.brown {background-color: chocolate; color: white;}
 .black {background-color: black; color: white;}
-.white {background-color: white;}
 .grey {background-color: darkgray; color: white;}
+.white {background-color: white;}
 
 .normal {background-color: #363636;}
 .blur {background-color: teal;}
 .size {background-color: darkgreen;}
-.contrast {background-color: darkslategray;}
-.custom {background-color: darkorchid;}
+.contrast {background-color: darkslateblue;}
+.custom {background-color: darkred;}
+.astigmatism {background-color: goldenrod;}
 .contrast-bg {
     background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
@@ -149,4 +168,37 @@ nav {
     & label {text-align: right;}
     & input[type="range"] {width: 100%;}
     & span {text-align: left;}
+}
+
+.astigmatism-view {
+    display: none;
+    width: 100vw;
+    height: 80vh;
+    padding: 70px 0px;
+
+    & p {padding: 0px 20px;}
+    & .clock-area {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    & .line-container {
+        height: 300px;
+        width: 16px;
+        display: flex;
+        position: absolute;
+        top: 35vh;
+    }
+    & .line {
+        height:50vh;
+        background-color: black;
+        width: 2px;
+        margin: 2px;
+    }
+    & .b-deg {transform: rotate(30deg);}
+    & .c-deg {transform: rotate(60deg);}
+    & .d-deg {transform: rotate(90deg);}
+    & .e-deg {transform: rotate(120deg);}
+    & .f-deg {transform: rotate(150deg);}
 }
